@@ -24,8 +24,6 @@ def profile_seeded() -> bool:
 
 
 def seed_cookie_params(cookies: dict[str, str]) -> list[dict]:
-    """Chrome rejects a __Host- cookie that carries a Domain (and one bad cookie
-    fails the whole batch), so those are pinned to the exact host by url."""
     params = []
     for name, value in cookies.items():
         if name.startswith("__Host-"):
